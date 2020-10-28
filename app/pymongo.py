@@ -35,6 +35,13 @@ class DatabaseManager(object):
         )
         return results
 
+    def update_many(self, filters: dict = {}, data: dict = {}) -> dict:
+        results = self.collection.update_many(
+            filters,
+            {"$set": data}
+        )
+        return results
+
     def delete_one(self, filters) -> dict:
         results = self.collection.delete_one(filters)
         return results
