@@ -34,3 +34,7 @@ class DatabaseManager(object):
             {"$set": data}
         )
         return results
+
+    def delete_one(self, filters) -> dict:
+        results = self.collection.delete_one(filters)
+        return results
