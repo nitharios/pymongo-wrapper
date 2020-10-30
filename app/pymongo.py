@@ -1,5 +1,5 @@
 # installed
-from pymongo import MongoClient
+from pymongo import MongoClient, errors
 
 
 class PyMongoClient(object):
