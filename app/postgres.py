@@ -36,3 +36,18 @@ class PostgresClient(object):
     def close(self):
         self.cursor.close()
         self.connection.close()
+
+    def query(self, query: str, values: tuple = ()) -> None:
+        self.cursor.execute(query, values)
+
+    def find_all(self, query: str, values: tuple = ()) -> list:
+        self.cursor.execute(query, values)
+        return self.cursor.fetchall()
+
+    def find_one(self, query: str, values: tuple = ()) -> object:
+        self.cursor.execute(query, values)
+        return self.cursor.fetchone()
+
+    def find_many(self, query: str, values: tuple(), limit: int = 25) -> list:
+        self.cursor.execute(query, values)
+        return self.cursor.fetchmany(limit)
